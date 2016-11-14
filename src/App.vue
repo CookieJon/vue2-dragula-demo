@@ -91,7 +91,7 @@ export default {
     console.log(Vue, Vue.prototype)
     let service = this.$dragula.$service
 
-    // IMPORTANT!! setup empty named drakes matching 
+    // IMPORTANT!! setup empty named drakes matching
     // directive drake configs in template
     // otherwise may (currently) result in conflict
 
@@ -104,7 +104,6 @@ export default {
     service.options('third', {
       copy: true
     })
-
   },
   methods: {
     onClick () {

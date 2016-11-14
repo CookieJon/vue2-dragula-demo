@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import App from './App'
 
-import VueDragula from 'vue-dragula'
+import { Vue2Dragula } from 'vue2-dragula'
+
+console.log('VueDragula', Vue2Dragula)
 
 Vue.config.debug = true
 
-Vue.use(VueDragula, {logging: true})
+Vue.use(Vue2Dragula, {logging: true})
 
 /* eslint-disable no-new */
 new Vue({
