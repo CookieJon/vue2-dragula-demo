@@ -7,7 +7,11 @@ console.log('VueDragula', Vue2Dragula)
 
 Vue.config.debug = true
 
-Vue.use(Vue2Dragula, {logging: true})
+Vue.use(Vue2Dragula, {
+  logging: {
+    service: true
+  }
+})
 
 /* eslint-disable no-new */
 new Vue({
