@@ -251,6 +251,10 @@ autoprefixer@^6.3.1, autoprefixer@^6.4.0:
     postcss "^5.2.5"
     postcss-value-parser "^3.2.3"
 
+autosize@^3.0.17:
+  version "3.0.18"
+  resolved "https://registry.yarnpkg.com/autosize/-/autosize-3.0.18.tgz#75ecffa2debb2c6398001a8847a570ad6bf94fd4"
+
 aws-sign2@~0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.6.0.tgz#14342dd38dbcc94d0e5b87d763cd63612c0e794f"
@@ -1774,6 +1778,10 @@ ee-first@1.1.1:
 ejs@~0.8.3:
   version "0.8.8"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-0.8.8.tgz#ffdc56dcc35d02926dd50ad13439bbc54061d598"
+
+element.scrollintoviewifneeded-polyfill@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/element.scrollintoviewifneeded-polyfill/-/element.scrollintoviewifneeded-polyfill-1.0.1.tgz#89a023481e81e7dfd72105c4c9170e83b357454f"
 
 emojis-list@^2.0.0:
   version "2.1.0"
@@ -3301,7 +3309,7 @@ klaw@^1.0.0:
   optionalDependencies:
     graceful-fs "^4.1.9"
 
-kristianmandrup/vue2-dragula#master, vue-dragula@kristianmandrup/vue2-dragula#master:
+kristianmandrup/vue2-dragula#master, vue-dragula@kristianmandrup/vue2-dragula#master, vue2-dragula@kristianmandrup/vue2-dragula#master:
   name vue2-dragula
   version "2.1.0"
   resolved "https://codeload.github.com/kristianmandrup/vue2-dragula/tar.gz/b8da968a12be87a3837ccd715cac017e1320c6e4"
@@ -5002,6 +5010,10 @@ sax@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.1.tgz#7b8e656190b228e81a66aea748480d828cd2d37a"
 
+scopedQuerySelectorShim@lazd/scopedQuerySelectorShim:
+  version "0.0.0"
+  resolved "https://codeload.github.com/lazd/scopedQuerySelectorShim/tar.gz/0ef4855a7944207510cdc0375a43956b2fc18410"
+
 selenium-server@2.53.1:
   version "2.53.1"
   resolved "https://registry.yarnpkg.com/selenium-server/-/selenium-server-2.53.1.tgz#d681528812f3c2e0531a6b7e613e23bb02cce8a6"
@@ -5722,6 +5734,15 @@ vue-loader@^9.4.0:
     vue-style-loader "^1.0.0"
     vue-template-compiler "^2.0.4"
     vue-template-es2015-compiler "^1.0.0"
+
+vue-material:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/vue-material/-/vue-material-0.3.0.tgz#47a2b29882c072b7217b42b4c771b77633f1264d"
+  dependencies:
+    autosize "^3.0.17"
+    element.scrollintoviewifneeded-polyfill "^1.0.1"
+    scopedQuerySelectorShim lazd/scopedQuerySelectorShim
+    vue "^2.0.5"
 
 vue-router:
   version "2.0.2"

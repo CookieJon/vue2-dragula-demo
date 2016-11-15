@@ -34,23 +34,27 @@ and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 ### Status: WIP
 
-Currently still WIP:
+Currently still WIP.
+
+Using [vue-material](https://marcosmoura.github.io/vue-material) and
+[vue-router](https://router.vuejs.org/en/api/route-object.html) for navigation menu
 
 *components*
 
-- `Home` component to provide a brief overview of the examples
-- `GlobalService` component to demonstrate use of global app service
-- `NamedServices` component to demonstrate named services
+- `Home` provides a brief overview of the examples
+- `GlobalService` demonstrates use of global app service
+- `NamedServices` demonstrates named services
 
 *router*
 
-The app is now configuted with a router which have the components mounted at:
+The app is configured with a router which have the following components mounted:
 - `/` : `home`
 - `/global` : `global`
 - `/named` : `named`
 
-The styling should be extracted and the code be a little more "clever".
-Please chip in, I've got limited time... ;)
+### Bugs and issues
+
+Please report [bugs or issues](https://github.com/kristianmandrup/vue2-dragula)
 
 ### Using v-dragula directive
 
