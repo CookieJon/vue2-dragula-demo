@@ -227,6 +227,23 @@ Sample effects styling
 }
 ```
 
+Note that `assets/styles.css` contains most of the styling used, primarily this part of interest:
+
+```css
+.container .ex-moved {
+  background-color: #e74c3c;
+}
+.container.ex-over {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.handle {
+  padding: 0 5px;
+  margin-right: 5px;
+  background-color: rgba(0, 0, 0, 0.4);
+  cursor: move;
+}
+```
+
 Tip: Please add more examples showcasing dynamic styling and transition effects to better visualize the drag and drop actions/events ;)
 
 ### Configuring dragula options
