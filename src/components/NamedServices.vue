@@ -1,5 +1,5 @@
 <template>
-  <section id="examples">
+  <section id="named-services-examples">
     <div class="examples">
       <div class="parent">
         <label>Move stuff between these two containers. Note how the stuff gets inserted near the mouse pointer? Great stuff.</label>
@@ -54,10 +54,7 @@
     </div>
   </section>
 </template>
-
 <script>
-import Vue from 'vue'
-
 export default {
   name: 'app',
 
@@ -88,7 +85,6 @@ export default {
     }
   },
   created () {
-    console.log(Vue, Vue.prototype)
     let dragula = this.$dragula
 
     dragula.createService({

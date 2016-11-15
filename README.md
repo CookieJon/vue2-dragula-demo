@@ -164,7 +164,8 @@ Add a black border effect on `:hover` over draggable child elements of a `drake`
 
 ### UX effects via event handlers
 
-Add/Remove DOM element style classes as UX effects for drag'n drop events
+Add/Remove DOM element style classes as UX effects for drag'n drop events.
+Here using [classList](https://developer.mozilla.org/en/docs/Web/API/Element/classList)
 
 ```js
 service.on({
@@ -174,19 +175,19 @@ service.on({
   },
   drag: (el, container) => {
     console.log('drag: ', el, container)
-    el.className = el.className.replace('ex-moved', '')
+    el.classList.remove('ex-moved')
   },
   drop: (el, container) => {
     console.log('drop: ', el, container)
-    el.className += ' ex-moved'
+    el.classList.add('ex-moved')
   },
   over: (el, container) => {
     console.log('over: ', el, container)
-    container.className += ' ex-over'
+    el.classList.add('ex-over')
   },
   out: (el, container) => {
     console.log('out: ', el, container, handle)
-    container.className = container.className.replace('ex-over', '')
+    el.classList.remove('ex-over')
   }
 })
 ```
