@@ -56,9 +56,15 @@ The app is configured with a router which have the following components mounted:
 
 Please report [bugs or issues](https://github.com/kristianmandrup/vue2-dragula)
 
-### Using v-dragula directive
+## Using v-dragula directive
 
-Use the `v-dragula` directive on an element to point to an underlying model data model (ie. an `Array`) in the VM. Use the `service` attribute to target a registered `DragulaService` and the `drake` attribute to define which named drake configuration to use for that service.
+- `v-dragula` directive on an element must point to an underlying data model (`Array`) in the VM.
+- `service` attribute specifies a registered `DragulaService`
+- `drake` attribute to use a specific named drake configuration registered on the service
+
+### Global app service example
+
+By not specifying a specific service it will use the global application level dragula service `$dragula.$service`
 
 ```html
 <div class="wrapper">
@@ -71,9 +77,35 @@ Use the `v-dragula` directive on an element to point to an underlying model data
 </div>
 ```
 
+### Named services
+
+DOM element containers can be set up to use specific named services as follows:
+
+```html
+<div class="wrapper">
+  <div class="container" v-dragula="colOne" service="first" drake="a">...</div>
+  <div class="container" v-dragula="colTwp" service="first" drake="b">...</div>
+  <div class="container" v-dragula="colTwo" service="first" drake="b">...</div>
+  <div class="container" v-dragula="stocks" service="second" drake="a">...</div>
+</div>
+```
+
+Every service has a `default` drake with default a dragula configuration.
+You can use the `default` drake by not setting the `drake` attribute.
+
+```html
+<div class="wrapper">
+  <div class="container" v-dragula="colOne" service="first">...</div>
+  <div class="container" v-dragula="colTwp" service="first">...</div>
+  <div class="container" v-dragula="colTwo" service="first" drake="b">...</div>
+  <div class="container" v-dragula="stocks" service="second">...</div>
+</div>
+```
+
+
 ### Dragula Service pre-configuration
 
-Please pre-configure named services with named drakes in the `created` life cycle hook method ofthe VM.
+Please pre-configure named services with drakes in the `created` life cycle hook method of the VM.
 
 ```js
 created () {
@@ -97,7 +129,7 @@ created () {
 
 ### Styling
 
-Add handles
+*Add handles*
 
 ```js
 .handle {
@@ -144,6 +176,8 @@ service.on({
   }
 })
 ```
+
+Tip: Please add one or more examples showcasing this effect ;)
 
 ### Configuring dragula options
 
