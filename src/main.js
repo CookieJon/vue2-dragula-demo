@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import VueRouter from 'vue-router'
 
 import router from './router'
 import { Vue2Dragula } from 'vue2-dragula'
@@ -14,10 +15,12 @@ Vue.use(Vue2Dragula, {
   }
 })
 
+Vue.use(VueRouter)
+
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
+  // el: '#app',
   router
-})
+}).$mount('#app')
 
 router.push('home')
