@@ -56,8 +56,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
-
 export default {
   name: 'globalService',
 
@@ -88,7 +86,7 @@ export default {
     }
   },
   created () {
-    console.log(Vue, Vue.prototype)
+    console.log('GLOBAL SERVICE: created')
     let service = this.$dragula.$service
 
     // IMPORTANT!! setup empty named drakes matching
@@ -104,6 +102,8 @@ export default {
     service.options('third', {
       copy: true
     })
+
+    console.log('GLOBAL SERVICE: ready')
   },
   methods: {
     onClick () {

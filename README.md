@@ -41,14 +41,12 @@ To help improve the plugin, please do the following:
 
 When you make changes to the plugin, make sure you run `npm run build` in order to compile it to `/dist`.
 
-### Status
-
-Currently still WIP. We hope to release this plugin before or in December 2016, so we urge you to try it out and
+We hope to release this plugin before or in December 2016, so we urge you to try it out and
 really excercise it, in order to find any remaining bugs or parts that need improvement.
 
 For now we use [vue-material](https://marcosmoura.github.io/vue-material) and
 [vue-router](https://router.vuejs.org/en/api/route-object.html) for the navigation menu.
-Styling has not yet been prioritized. Please help out make the demo look beautiful.
+Styling has not yet been prioritized much. Please help out make the demo look beautiful.
 
 *components*
 
@@ -75,11 +73,6 @@ link to your example route.
 
 Please report [bugs or issues](https://github.com/kristianmandrup/vue2-dragula)
 
-*Known bugs*
-
-As demonstrated by the `Drag Effects` demo, the drag event handlers are not being triggered correctly just yet.
-Please help fix this :)
-
 ## Using v-dragula directive
 
 - `v-dragula` directive on an element must point to an underlying data model (`Array`) in the VM.
@@ -88,7 +81,7 @@ Please help fix this :)
 
 ### Global app service example
 
-By not specifying a specific service it will use the global application level dragula service `$dragula.$service`
+If you don't specify a service the global application level dragula service `$dragula.$service` will be used
 
 ```html
 <div class="wrapper">
@@ -103,7 +96,7 @@ By not specifying a specific service it will use the global application level dr
 
 ### Named services
 
-DOM element containers can be set up to use specific named services as follows:
+DOM element containers can be configured to use specific named services:
 
 ```html
 <div class="wrapper">
@@ -128,7 +121,7 @@ You can use the `default` drake by not setting the `drake` attribute.
 
 ### Dragula Service pre-configuration
 
-Please pre-configure named services with drakes in the `created` life cycle hook method of the VM.
+Always pre-configure named services with drakes in the `created` life cycle hook method of the VM.
 
 ```js
 created () {
@@ -185,30 +178,56 @@ Here using [classList](https://developer.mozilla.org/en/docs/Web/API/Element/cla
 
 ```js
 service.on({
-  accepts: (el, target) => {
-    console.log('accepts: ', el, target)
+  accepts: (drake, el, target) => {
+    log('accepts: ', el, target)
     return true // target !== document.getElementById(left)
   },
-  drag: (el, container) => {
-    console.log('drag: ', el, container)
+  drag: (drake, el, container) => {
+    log('drag: ', 'el:', el, 'c:', container)
+    log('classList', el.classList)
     el.classList.remove('ex-moved')
   },
-  drop: (el, container) => {
-    console.log('drop: ', el, container)
+  drop: (drake, el, container) => {
+    log('drop: ', el, container)
+    log('classList', el.classList)
     el.classList.add('ex-moved')
   },
-  over: (el, container) => {
-    console.log('over: ', el, container)
+  over: (drake, el, container) => {
+    log('over: ', el, container)
+    log('classList', el.classList)
     el.classList.add('ex-over')
   },
-  out: (el, container) => {
-    console.log('out: ', el, container, handle)
+  out: (drake, el, container) => {
+    log('out: ', el, container)
+    log('classList', el.classList)
     el.classList.remove('ex-over')
   }
 })
 ```
 
-Tip: Please help add one or more examples showcasing some nice style response or transition effects ;)
+Sample effects styling
+
+```css
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.ex-moved {
+  animation: fadeIn .5s ease-in 1 forwards;
+  border: 2px solid yellow;
+  padding: 2px
+}
+
+.ex-over {
+  animation: fadeIn .5s ease-in 1 forwards;
+  border: 4px solid green;
+  padding: 2px
+}
+```
+
+Tip: Please add more examples showcasing dynamic styling and transition effects to better visualize the drag and drop actions/events ;)
 
 ### Configuring dragula options
 

@@ -39,7 +39,9 @@ export default {
     }
   },
   // TODO: add drag
-  create () {
+  created () {
+    console.log('DRAG EFFECTS: created')
+
     let dragula = this.$dragula
 
     let service = dragula.createService({
@@ -49,38 +51,55 @@ export default {
       }
     })
 
+    let log = console.log
+
     // TODO: Use classlist: https://developer.mozilla.org/en/docs/Web/API/Element/classList
     service.on({
-      accepts: (el, target) => {
-        console.log('accepts: ', el, target)
+      accepts: (drake, el, target) => {
+        log('accepts: ', el, target)
         return true // target !== document.getElementById(left)
       },
-      drag: (el, container) => {
-        console.log('drag: ', el, container)
+      drag: (drake, el, container) => {
+        log('drag: ', 'el:', el, 'c:', container)
+        log('classList', el.classList)
         el.classList.remove('ex-moved')
       },
-      drop: (el, container) => {
-        console.log('drop: ', el, container)
+      drop: (drake, el, container) => {
+        log('drop: ', el, container)
+        log('classList', el.classList)
         el.classList.add('ex-moved')
       },
-      over: (el, container) => {
-        console.log('over: ', el, container)
+      over: (drake, el, container) => {
+        log('over: ', el, container)
+        log('classList', el.classList)
         el.classList.add('ex-over')
       },
-      out: (el, container) => {
-        console.log('out: ', el, container)
+      out: (drake, el, container) => {
+        log('out: ', el, container)
+        log('classList', el.classList)
         el.classList.remove('ex-over')
       }
     })
+    console.log('DRAG EFFECTS: ready')
   }
 }
 </script>
 <style>
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
 .ex-moved {
+  animation: fadeIn .5s ease-in 1 forwards;
   border: 2px solid yellow;
+  padding: 2px
 }
 
 .ex-over {
-border: 2px solid green;
+  animation: fadeIn .5s ease-in 1 forwards;
+  border: 4px solid green;
+  padding: 2px
 }
 </style>

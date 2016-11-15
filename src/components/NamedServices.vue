@@ -84,6 +84,8 @@ export default {
     }
   },
   created () {
+    console.log('NAMED SERVICES: created')
+
     let dragula = this.$dragula
 
     dragula.createService({
@@ -106,6 +108,8 @@ export default {
         a: true
       }
     })
+
+    console.log('NAMED SERVICES: ready')
   },
   methods: {
     onClick () {
