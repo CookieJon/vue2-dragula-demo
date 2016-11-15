@@ -16,9 +16,10 @@
   },
   "dependencies": {
     "standard": "^8.5.0",
-    "vue": "^2.0.1",
-    "vue-dragula": "kristianmandrup/vue-dragula#dev",
-    "vue-router": "^2.0.2"
+    "vue": "^2.0.5",
+    "vue-dragula": "kristianmandrup/vue2-dragula#master",
+    "vue-router": "^2.0.2",
+    "vue2-dragula": "kristianmandrup/vue2-dragula#master"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

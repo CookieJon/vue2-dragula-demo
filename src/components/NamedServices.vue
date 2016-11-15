@@ -95,7 +95,7 @@ export default {
       name: 'first',
       drakes: {
         first: {
-          copy: true,
+          copy: true
         }
       },
       options: {
@@ -106,7 +106,7 @@ export default {
     })
 
     dragula.createServices({
-      name: ['second', 'third']
+      name: ['second', 'third'],
       drakes: {
         a: true
       }
