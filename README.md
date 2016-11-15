@@ -32,6 +32,15 @@ npm test
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/)
 and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
+### Development
+
+To help improve the plugin, please do the following:
+- fork [vue2-dragula](https://github.com/kristianmandrup/vue2-dragula) and clone it to local disk
+- from within the root of `/vue2-dragula` run `npm link` to make a symbolic global link to this package
+- from the root of this demo app, run `npm link vue2-dragula` to install the `vue2-dragula` module via the symbolic link
+
+When you make changes to the plugin, make sure you run `npm run build` in order to compile it to `/dist`.
+
 ### Status
 
 Currently still WIP. We hope to release this plugin before or in December 2016, so we urge you to try it out and
@@ -43,9 +52,10 @@ Styling has not yet been prioritized. Please help out make the demo look beautif
 
 *components*
 
-- `Home` provides a brief overview of the examples
-- `GlobalService` demonstrates use of global app service
-- `NamedServices` demonstrates named services
+- `Home` brief overview of the examples
+- `GlobalService` use of global app service
+- `NamedServices` named services
+- `DragEffects` drag effects on a named service (*WIP*)
 
 *router*
 
@@ -53,6 +63,7 @@ The app is configured with a router which have the following components mounted:
 - `/` : `home`
 - `/global` : `global`
 - `/named` : `named`
+- `/effects` : `effects`
 
 *To add your own example page*
 
@@ -63,6 +74,11 @@ link to your example route.
 ### Bugs and issues
 
 Please report [bugs or issues](https://github.com/kristianmandrup/vue2-dragula)
+
+*Known bugs*
+
+As demonstrated by the `Drag Effects` demo, the drag event handlers are not being triggered correctly just yet.
+Please help fix this :)
 
 ## Using v-dragula directive
 

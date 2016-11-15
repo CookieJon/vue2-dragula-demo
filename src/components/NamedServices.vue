@@ -56,8 +56,7 @@
 </template>
 <script>
 export default {
-  name: 'app',
-
+  name: 'namedServices',
   data () {
     return {
       colOne: [

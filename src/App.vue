@@ -15,14 +15,21 @@
           <md-button class="md-icon-button">
             <router-link :to="{ name: 'global'}">
               <md-tooltip md-direction="top">Global service</md-tooltip>
-              <md-icon>search</md-icon>
+              <md-icon>explore</md-icon>
             </router-link>
           </md-button>
 
           <md-button class="md-icon-button">
             <router-link :to="{ name: 'named'}">
               <md-tooltip md-direction="top">Named services</md-tooltip>
-              <md-icon>filter_list</md-icon>
+              <md-icon>extension</md-icon>
+            </router-link>
+          </md-button>
+
+          <md-button class="md-icon-button">
+            <router-link :to="{ name: 'effects'}">
+              <md-tooltip md-direction="top">Effects services</md-tooltip>
+              <md-icon>favorite</md-icon>
             </router-link>
           </md-button>
         </div>
