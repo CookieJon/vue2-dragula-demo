@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import App from './App'
 
+import router from './router'
 import { Vue2Dragula } from 'vue2-dragula'
 
 console.log('VueDragula', Vue2Dragula)
@@ -15,7 +15,5 @@ Vue.use(Vue2Dragula, {
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  template: '<App/>',
-  components: { App }
-})
+  router
+}).$mount('#app')

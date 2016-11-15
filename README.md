@@ -4,11 +4,8 @@
 
 ### Status: WIP
 
-Currently using this vue-dragula [dev]("vue-dragula": "kristianmandrup/vue-dragula#dev") branch. See more in sections below.
-
-### TODO
-
-Refactor and upgrade to use latest API
+Demo app which demonstrates how to use the new [vue2-dragula](https://github.com/kristianmandrup/vue2-dragula) plugin.
+See more info in plugin Readme and in the sections below.
 
 ## Build Setup
 
@@ -32,37 +29,28 @@ npm run e2e
 npm test
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/)
+and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-### Dragula
+### Status: WIP
 
-Note that when instantiating dragula, you can pass a host of options. These options can be passed to `drake` instances of each service.
+Currently still WIP:
 
-*TODO:* Perhaps add a way to pass a custom `dragula` factory method in [vue-dragula](https://github.com/kristianmandrup/vue-dragula/tree/dev). Currently hard coded to only create with a single container.
+*components*
 
-```js
-dragula(containers, {
-  isContainer: function (el) {
-    return false; // only elements in drake.containers will be taken into account
-  },
-  moves: function (el, source, handle, sibling) {
-    return true; // elements are always draggable by default
-  },
-  accepts: function (el, target, source, sibling) {
-    return true; // elements can be dropped in any of the `containers` by default
-  },
-  invalid: function (el, handle) {
-    return false; // don't prevent any drags from initiating by default
-  },
-  direction: 'vertical',             // Y axis is considered when determining where an element would be dropped
-  copy: false,                       // elements are moved by default, not copied
-  copySortSource: false,             // elements in copy-source containers can be reordered
-  revertOnSpill: false,              // spilling will put the element back where it was dragged from, if this is true
-  removeOnSpill: false,              // spilling will `.remove` the element, if this is true
-  mirrorContainer: document.body,    // set the element that gets mirror elements appended
-  ignoreInputTextSelection: true     // allows users to select input text, see details below
-});
-```
+- `Home` component to provide a brief overview of the examples
+- `GlobalService` component to demonstrate use of global app service
+- `NamedServices` component to demonstrate named services
+
+*router*
+
+The app is now configuted with a router which have the components mounted at:
+- `/` : `home`
+- `/global` : `global`
+- `/named` : `named`
+
+The styling should be extracted and the code be a little more "clever".
+Please chip in, I've got limited time... ;)
 
 ### Using v-dragula directive
 
@@ -81,11 +69,11 @@ Use the `v-dragula` directive on an element to point to an underlying model data
 
 ### Dragula Service pre-configuration
 
-Please Pre-configure named services with named drakes in the `created` life cycle hook method ofthe VM.
+Please pre-configure named services with named drakes in the `created` life cycle hook method ofthe VM.
 
 ```js
 created () {
-  let myService = this.$dragula.create({
+  let myService = this.$dragula.createService({
     name: 'my-service',
     drakes: {
       first: {
@@ -151,6 +139,32 @@ service.on({
     container.className = container.className.replace('ex-over', '')
   }
 })
+```
+
+### Configuring dragula options
+
+```js
+dragula(containers, {
+  isContainer: function (el) {
+    return false; // only elements in drake.containers will be taken into account
+  },
+  moves: function (el, source, handle, sibling) {
+    return true; // elements are always draggable by default
+  },
+  accepts: function (el, target, source, sibling) {
+    return true; // elements can be dropped in any of the `containers` by default
+  },
+  invalid: function (el, handle) {
+    return false; // don't prevent any drags from initiating by default
+  },
+  direction: 'vertical',             // Y axis is considered when determining where an element would be dropped
+  copy: false,                       // elements are moved by default, not copied
+  copySortSource: false,             // elements in copy-source containers can be reordered
+  revertOnSpill: false,              // spilling will put the element back where it was dragged from, if this is true
+  removeOnSpill: false,              // spilling will `.remove` the element, if this is true
+  mirrorContainer: document.body,    // set the element that gets mirror elements appended
+  ignoreInputTextSelection: true     // allows users to select input text, see details below
+});
 ```
 
 Let us know if this demo helps you and what you build with this example as your foundation. Feel free to improve :)
