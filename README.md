@@ -32,12 +32,14 @@ npm test
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/)
 and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-### Status: WIP
+### Status
 
-Currently still WIP.
+Currently still WIP. We hope to release this plugin before or in December 2016, so we urge you to try it out and
+really excercise it, in order to find any remaining bugs or parts that need improvement.
 
-Using [vue-material](https://marcosmoura.github.io/vue-material) and
-[vue-router](https://router.vuejs.org/en/api/route-object.html) for navigation menu
+For now we use [vue-material](https://marcosmoura.github.io/vue-material) and
+[vue-router](https://router.vuejs.org/en/api/route-object.html) for the navigation menu.
+Styling has not yet been prioritized. Please help out make the demo look beautiful.
 
 *components*
 
@@ -51,6 +53,12 @@ The app is configured with a router which have the following components mounted:
 - `/` : `home`
 - `/global` : `global`
 - `/named` : `named`
+
+*To add your own example page*
+
+Add a route in `routes/index` and your example component in `/components`.
+Register the component in `/components/index.js` and update the main navigation in `App.vue` with a
+link to your example route.
 
 ### Bugs and issues
 
@@ -102,7 +110,6 @@ You can use the `default` drake by not setting the `drake` attribute.
 </div>
 ```
 
-
 ### Dragula Service pre-configuration
 
 Please pre-configure named services with drakes in the `created` life cycle hook method of the VM.
@@ -115,6 +122,13 @@ created () {
       first: {
         copy: true,
       }
+    }
+  })
+
+  let otherService = this.$dragula.createService({
+    name: 'other-service',
+    drake: {
+      // default drake config
     }
   })
 
@@ -177,7 +191,7 @@ service.on({
 })
 ```
 
-Tip: Please add one or more examples showcasing this effect ;)
+Tip: Please help add one or more examples showcasing some nice style response or transition effects ;)
 
 ### Configuring dragula options
 
@@ -205,10 +219,13 @@ dragula(containers, {
 });
 ```
 
-Let us know if this demo helps you and what you build with this example as your foundation. Feel free to improve :)
+Let us know if this demo helps you and what you build with this example as your foundation.
+Feel free to improve and come with suggestions :)
 
 **Enjoy!!!**
 
 ## License
 
 MIT
+
+(c) Kristian Mandrup 2016
