@@ -57,25 +57,29 @@ export default {
     // See all events here: https://github.com/bevacqua/dragula#drakeon-events
     //
     service.on({
-      removeModel: ({name, el, source, dragIndex, model}) => {
-        log('removeModel: ', name, el, source, dragIndex, model)
+      'effects:removeModel': ({name, el, source, dragIndex, model}) => {
+        log('HANDLE effects:removeModel: ', name, el, source, dragIndex, model)
+        el.classList.remove('ex-moved')
       },
-      dropModel: ({name, el, source, target, dropIndex, model}) => {
-        log('dropModel: ', el, target, dropIndex, model)
+      'effects:dropModel': ({name, el, source, target, dropIndex, model}) => {
+        log('HANDLE effects:dropModel: ', el, source, target, dropIndex, model)
+        el.classList.add('ex-moved')
       },
       accepts: ({el, target}) => {
         log('accepts: ', el, target)
         return true // target !== document.getElementById(left)
       },
-      drag: ({el, container}) => {
-        log('drag: ', 'el:', el, 'c:', container)
+      drag: ({el, source, target, container}) => {
+        log('HANDLE drag: ', 'el:', el, 'c:', container)
         log('classList', el.classList)
         el.classList.remove('ex-moved')
       },
-      drop: ({el, container, model}) => {
-        log('drop: ', el, container, model)
+      drop: (opts) => {
+        const {el, container, model} = opts
+        log('HANDLE drop: ', el, container, model, opts)
         log('classList', el.classList)
         el.classList.add('ex-moved')
+        log('new classList', el.classList)
       },
       over: ({el, container}) => {
         log('over: ', el, container)
@@ -100,7 +104,7 @@ export default {
 }
 
 .ex-moved {
-  animation: fadeIn .5s ease-in 1 forwards;
+  animation: fadeIn 2s ease-in 1 forwards;
   border: 2px solid yellow;
   padding: 2px
 }
