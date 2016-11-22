@@ -3309,7 +3309,7 @@ klaw@^1.0.0:
   optionalDependencies:
     graceful-fs "^4.1.9"
 
-kristianmandrup/vue2-dragula#master, vue-dragula@kristianmandrup/vue2-dragula#master, vue2-dragula@kristianmandrup/vue2-dragula#master:
+kristianmandrup/vue2-dragula#master, vue2-dragula@kristianmandrup/vue2-dragula#master:
   name vue2-dragula
   version "2.1.0"
   resolved "https://codeload.github.com/kristianmandrup/vue2-dragula/tar.gz/b8da968a12be87a3837ccd715cac017e1320c6e4"

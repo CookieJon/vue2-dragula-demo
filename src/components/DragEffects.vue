@@ -58,11 +58,11 @@ export default {
     //
     service.on({
       removeModel: ({name, el, source, dragIndex, model}) => {
-        log('removeModel: ', el, target, dragIndex, model)
+        log('removeModel: ', name, el, source, dragIndex, model)
       },
       dropModel: ({name, el, source, target, dropIndex, model}) => {
         log('dropModel: ', el, target, dropIndex, model)
-      }
+      },
       accepts: ({el, target}) => {
         log('accepts: ', el, target)
         return true // target !== document.getElementById(left)
@@ -72,8 +72,8 @@ export default {
         log('classList', el.classList)
         el.classList.remove('ex-moved')
       },
-      drop: ({el, container}) => {
-        log('drop: ', el, container)
+      drop: ({el, container, model}) => {
+        log('drop: ', el, container, model)
         log('classList', el.classList)
         el.classList.add('ex-moved')
       },
