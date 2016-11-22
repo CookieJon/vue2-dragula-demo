@@ -54,27 +54,35 @@ export default {
     let log = console.log
 
     // TODO: Use classlist: https://developer.mozilla.org/en/docs/Web/API/Element/classList
+    // See all events here: https://github.com/bevacqua/dragula#drakeon-events
+    //
     service.on({
-      accepts: (drake, el, target) => {
+      removeModel: ({name, el, source, dragIndex, model}) => {
+        log('removeModel: ', el, target, dragIndex, model)
+      },
+      dropModel: ({name, el, source, target, dropIndex, model}) => {
+        log('dropModel: ', el, target, dropIndex, model)
+      }
+      accepts: ({el, target}) => {
         log('accepts: ', el, target)
         return true // target !== document.getElementById(left)
       },
-      drag: (drake, el, container) => {
+      drag: ({el, container}) => {
         log('drag: ', 'el:', el, 'c:', container)
         log('classList', el.classList)
         el.classList.remove('ex-moved')
       },
-      drop: (drake, el, container) => {
+      drop: ({el, container}) => {
         log('drop: ', el, container)
         log('classList', el.classList)
         el.classList.add('ex-moved')
       },
-      over: (drake, el, container) => {
+      over: ({el, container}) => {
         log('over: ', el, container)
         log('classList', el.classList)
         el.classList.add('ex-over')
       },
-      out: (drake, el, container) => {
+      out: ({el, container}) => {
         log('out: ', el, container)
         log('classList', el.classList)
         el.classList.remove('ex-over')
