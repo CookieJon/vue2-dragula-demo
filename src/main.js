@@ -24,6 +24,7 @@ Vue.config.debug = true
 
 Vue.use(Vue2Dragula, {
   logging: {
+    directive: true,
     plugin: true,
     service: true,
     dragHandler: true
