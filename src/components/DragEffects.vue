@@ -4,13 +4,13 @@
       <div class="parent">
         <label>Move stuff between these two containers. Note how the stuff gets inserted near the mouse pointer? Great stuff.</label>
         <div class="wrapper">
-          <div class="container" v-dragula="colOne" service="effects">
+          <div id="first" class="container" v-dragula="colOne" service="effects">
             <div v-for="text in colOne">
               <span class="handle">+</span>
               <span>{{text}}</text>
             </div>
           </div>
-          <div class="container" v-dragula="colTwo" service="effects">
+          <div id="second" class="container" v-dragula="colTwo" service="effects">
             <div v-for="text in colTwo">
               <span class="handle">+</span>
               <span>{{text}}</text>
